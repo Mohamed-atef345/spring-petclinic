@@ -1,11 +1,12 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'mvn_parameter', defaultValue: 'install', description: 'mvn_parameter')
+    }
+
     stages {
         stage('first_stage') {
-             parameters {
-                    string(name: 'mvn_parameter', defaultValue: 'install', description: 'mvn_parameter')
-                }
             steps {
                 sh "mvn ${mvn_parameter}"
             }
