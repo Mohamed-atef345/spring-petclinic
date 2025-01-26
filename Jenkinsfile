@@ -2,10 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('source') {
+        stage('first_stage') {
+             parameters {
+                    string(name: 'mvn_parameter', defaultValue: 'install', description: 'mvn_parameter')
+                }
             steps {
-                echo 'Hello World'
-                git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
+                sh "mvn ${mvn_parameter}"
             }
         }
         stage('package') {
