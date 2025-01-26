@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('first_stage') {
             steps {
-                sh "mvn ${mvn_parameter}"
+                sh "mvn ${params.mvn_parameter}"
             }
         }
         stage('package') {
