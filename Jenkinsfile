@@ -4,7 +4,6 @@ pipeline {
     parameters {
         choice(name: 'mvn_parameters', choices: ['install', 'package', 'test', 'clean'], description: 'mvn parameters choice')
     }
-
     stages {
         stage('first_stage') {
             steps {
